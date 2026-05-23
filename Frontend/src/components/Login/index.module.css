@@ -1,0 +1,223 @@
+.loginContainer {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.loginCard {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.backButton {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: #F3F4F6;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  color: #6B7280;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.backButton:hover {
+  background: #E5E7EB;
+  color: #374151;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1F2937;
+  margin: 2rem 0 0.5rem;
+}
+
+.subtitle {
+  color: #6B7280;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.errorMessage {
+  background-color: #FEE2E2;
+  border: 1px solid #FECACA;
+  color: #DC2626;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.resendButton {
+  display: block;
+  margin: 0.5rem auto 0;
+  background: #4F46E5;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.resendButton:hover:not(:disabled) {
+  background: #3730A3;
+}
+
+.resendButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inputGroup label {
+  font-weight: 500;
+  color: #374151;
+  font-size: 0.9rem;
+}
+
+.inputGroup input {
+  padding: 0.75rem 1rem;
+  border: 2px solid #E5E7EB;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.inputGroup input:focus {
+  border-color: #4F46E5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.inputGroup input:disabled {
+  background-color: #F9FAFB;
+  cursor: not-allowed;
+}
+
+.submitButton {
+  background: linear-gradient(135deg, #4F46E5, #7C3AED);
+  color: white;
+  border: none;
+  padding: 0.875rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.submitButton:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(79, 70, 229, 0.3);
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  color: #9CA3AF;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: #E5E7EB;
+}
+
+.googleLoginContainer {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.googleLoginContainer :global(div) {
+  width: 100%;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #E5E7EB;
+}
+
+.footer p {
+  color: #6B7280;
+  margin: 0;
+}
+
+.link {
+  color: #4F46E5;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: #3730A3;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .loginContainer {
+    padding: 1rem;
+  }
+  
+  .loginCard {
+    padding: 2rem 1.5rem;
+  }
+  
+  .title {
+    font-size: 1.75rem;
+  }
+  
+  .backButton {
+    position: static;
+    margin-bottom: 1rem;
+    width: 100%;
+  }
+}

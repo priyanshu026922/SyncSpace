@@ -1,0 +1,27 @@
+{
+  "name": "whiteboard-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "WhiteBoard Backend API with Socket.io",
+  "main": "server.js",
+  "dependencies": {
+    "bcrypt": "*",
+    "cors": "*",
+    "dotenv": "^17.4.2",
+    "express": "*",
+    "jsonwebtoken": "*",
+    "mongoose": "*",
+    "socket.io": "*"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "upgrade-deps": "npx npm-check-updates -u && npm install"
+  },
+  "devDependencies": {
+    "nodemon": "*"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}

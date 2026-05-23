@@ -1,0 +1,71 @@
+/* .textElementBox {
+  position: fixed;
+  border: none;
+  background: transparent;
+  resize: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  font-size: inherit;
+  font-family: inherit;
+  color: inherit;
+  line-height: inherit;
+  font-family: "Caveat";
+} */
+
+.textElementBox {
+  position: fixed;
+  border: none;
+  background: transparent;
+  resize: none;
+  outline: none;
+  padding: 2px 4px;
+  margin: 0;
+  width: auto;
+  min-width: 40px;
+  height: auto;
+  overflow: hidden;
+
+  font-family: "Caveat", cursive;
+  font-size: 22px;
+  font-weight: 600;
+  color: #2A2318;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+
+  /* Warm underline that feels hand-drawn rather than UI-generic */
+  border-bottom: 1.5px solid transparent;
+  border-radius: 0;
+  caret-color: #C8956A;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+/* Warm amber caret + ink underline on focus */
+.textElementBox:focus {
+  border-bottom-color: #C8956A88;
+  background: #C8956A08;
+  border-radius: 3px 3px 0 0;
+}
+
+/* Selection feels like a highlighter, not a blue blob */
+.textElementBox::selection {
+  background: #C8956A33;
+  color: #2A2318;
+}
+
+/* Barely-there placeholder — a ghost of a suggestion */
+.textElementBox::placeholder {
+  color: #C8B49A;
+  font-weight: 400;
+}
+
+/* Size variants to drop on the element via JS */
+.textElementBox.text--sm { font-size: 14px; }
+.textElementBox.text--md { font-size: 22px; }
+.textElementBox.text--lg { font-size: 32px; font-weight: 700; }

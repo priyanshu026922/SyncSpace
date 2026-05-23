@@ -1,0 +1,532 @@
+/* About Page Styles */
+.aboutContainer {
+  min-height: 100vh;
+  background: #FFFFFF;
+  color: #333;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Navigation */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 1rem 0;
+}
+
+.navContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+.logo h2 {
+  margin: 0;
+  color: #4F46E5;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.backButton {
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid #4F46E5;
+  background: transparent;
+  color: #4F46E5;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.backButton:hover {
+  background: #4F46E5;
+  color: white;
+}
+
+/* Hero Section */
+.heroSection {
+  padding: 8rem 2rem 4rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  text-align: center;
+  color: white;
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heroTitle {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.highlight {
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroDescription {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Mission Section */
+.missionSection {
+  padding: 6rem 2rem;
+  background: #F8FAFC;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.missionContent {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.missionText h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #1F2937;
+}
+
+.missionText p {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #6B7280;
+  margin-bottom: 1.5rem;
+}
+
+.missionVisual {
+  display: flex;
+  justify-content: center;
+}
+
+.visualCard {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 250px;
+}
+
+.cardIcon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #4F46E5, #7C3AED);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  color: white;
+}
+
+.cardIcon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.visualCard h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1F2937;
+}
+
+.visualCard p {
+  color: #6B7280;
+  font-size: 0.9rem;
+}
+
+/* Story Section */
+.storySection {
+  padding: 6rem 2rem;
+  background: white;
+}
+
+.storyGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.storyContent h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #1F2937;
+}
+
+.storyContent p {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #6B7280;
+  margin-bottom: 1.5rem;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #4F46E5;
+  margin-bottom: 0.5rem;
+}
+
+.stat p {
+  color: #6B7280;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.storyVisual {
+  display: flex;
+  justify-content: center;
+}
+
+.timelineCard {
+  background: #F8FAFC;
+  padding: 2rem;
+  border-radius: 16px;
+  border-left: 4px solid #4F46E5;
+}
+
+.timelineItem {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.timelineItem:last-child {
+  margin-bottom: 0;
+}
+
+.timelineYear {
+  background: #4F46E5;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  min-width: 60px;
+  text-align: center;
+}
+
+.timelineContent h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1F2937;
+  margin-bottom: 0.5rem;
+}
+
+.timelineContent p {
+  color: #6B7280;
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Values Section */
+.valuesSection {
+  padding: 6rem 2rem;
+  background: #F8FAFC;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.sectionHeader h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1F2937;
+}
+
+.sectionHeader p {
+  font-size: 1.25rem;
+  color: #6B7280;
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.valueCard {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #E5E7EB;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.valueCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  border-color: #4F46E5;
+}
+
+.valueIcon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #4F46E5, #7C3AED);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: white;
+}
+
+.valueIcon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.valueCard h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1F2937;
+}
+
+.valueCard p {
+  color: #6B7280;
+  line-height: 1.6;
+}
+
+/* Team Section */
+.teamSection {
+  padding: 6rem 2rem;
+  background: white;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.teamCard {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #E5E7EB;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.teamCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.teamAvatar {
+  margin-bottom: 1.5rem;
+}
+
+.avatarPlaceholder {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #4F46E5, #7C3AED);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.teamCard h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1F2937;
+}
+
+.teamRole {
+  color: #4F46E5;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.teamBio {
+  color: #6B7280;
+  line-height: 1.6;
+  font-size: 0.9rem;
+}
+
+/* CTA Section */
+.ctaSection {
+  background: linear-gradient(135deg, #1F2937, #374151);
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.ctaContent h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.ctaContent p {
+  font-size: 1.25rem;
+  color: #D1D5DB;
+  margin-bottom: 2rem;
+}
+
+.ctaButton {
+  background: linear-gradient(135deg, #10B981, #059669);
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+}
+
+/* Footer */
+.footer {
+  background: #111827;
+  color: white;
+  padding: 3rem 2rem 1rem;
+}
+
+.footerContent {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footerSection h3, .footerSection h4 {
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.footerSection p {
+  color: #9CA3AF;
+  line-height: 1.6;
+}
+
+.footerSection ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footerSection ul li {
+  margin-bottom: 0.5rem;
+  color: #9CA3AF;
+}
+
+.footerBottom {
+  border-top: 1px solid #374151;
+  padding-top: 1rem;
+  text-align: center;
+  color: #9CA3AF;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+  
+  .missionContent,
+  .storyGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .stats {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .valuesGrid,
+  .teamGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .navContent {
+    padding: 0 1rem;
+  }
+  
+  .sectionHeader h2 {
+    font-size: 2rem;
+  }
+  
+  .ctaContent h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroTitle {
+    font-size: 2rem;
+  }
+  
+  .heroSection {
+    padding: 6rem 1rem 2rem;
+  }
+  
+  .missionSection,
+  .storySection,
+  .valuesSection,
+  .teamSection {
+    padding: 4rem 1rem;
+  }
+  
+  .ctaSection {
+    padding: 4rem 1rem;
+  }
+}

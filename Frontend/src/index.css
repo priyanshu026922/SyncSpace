@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap");
+
+:root {
+  /* Canvas & surfaces */
+  --canvas-bg: #F5F0E8;
+  --canvas-dot-color: #C8B9A033;
+
+  /* Dark shell */
+  --shell-bg: #1C1914;
+  --shell-border: #2E2A24;
+  --shell-muted: #9A8E7A;
+
+  /* Brand accent */
+  --accent: #C8956A;
+  --accent-glow: #C8956A22;
+
+  /* Sidebar panel */
+  --panel-bg: #EDE8DE;
+  --panel-border: #D4C9B5;
+
+  /* Type */
+  --text-primary: #2A2318;
+  --text-muted: #9A8878;
+  --text-mono: #6B5E50;
+
+  /* Sticky notes */
+  --sticky-amber-bg: #F5D97E;
+  --sticky-amber-ink: #6B4F00;
+  --sticky-rose-bg:   #F5C2C0;
+  --sticky-rose-ink:  #6B1A18;
+  --sticky-sage-bg:   #C5DDB8;
+  --sticky-sage-ink:  #1E4A10;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Instrument Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--shell-bg);
+}
+
+code {
+  font-family: 'DM Mono', 'Fira Code', 'Courier New', monospace;
+}
+
+/* ── Layout ── */
+.app-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: var(--shell-bg);
+  display: grid;
+  grid-template-rows: 44px 1fr;
+  grid-template-columns: 1fr 40px;
+}
+
+/* ── Canvas ── */
+#canvas {
+  display: block;
+  grid-column: 1;
+  grid-row: 2;
+  background-color: var(--canvas-bg);
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    var(--canvas-dot-color) 1px,
+    transparent 0
+  );
+  background-size: 24px 24px;
+  cursor: crosshair;
+}
+
+/* ── Top bar ── */
+.toolbar {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  background: var(--shell-bg);
+  border-bottom: 1px solid var(--shell-border);
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  gap: 6px;
+}
+
+.toolbar-logo {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 17px;
+  color: #E8DCC8;
+  letter-spacing: 0.01em;
+  margin-right: auto;
+}
+
+.toolbar-logo em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+/* Tool buttons */
+.tool-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  border: 0.5px solid var(--shell-border);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--shell-muted);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.tool-btn:hover {
+  background: #FFFFFF0A;
+  color: #E8DCC8;
+}
+
+.tool-btn.active {
+  background: var(--accent-glow);
+  border-color: #C8956A55;
+  color: var(--accent);
+}
+
+/* ── Side panel ── */
+.side-panel {
+  grid-column: 2;
+  grid-row: 2;
+  background: var(--panel-bg);
+  border-left: 0.5px solid var(--panel-border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+  gap: 6px;
+}
+
+.panel-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.12s, color 0.12s;
+}
+
+.panel-btn:hover {
+  background: var(--panel-border);
+  color: var(--text-primary);
+}
+
+.panel-btn.active {
+  color: var(--accent);
+}
+
+/* ── Canvas elements ── */
+
+/* Sticky notes */
+.sticky {
+  position: absolute;
+  padding: 10px 12px;
+  border-radius: 2px;
+  font-size: 12px;
+  line-height: 1.55;
+  user-select: none;
+  cursor: grab;
+  box-shadow:
+    2px 3px 8px rgba(0, 0, 0, 0.12),
+    0 0 0 0.5px rgba(0, 0, 0, 0.06);
+}
+
+.sticky:active { cursor: grabbing; }
+
+.sticky-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.65;
+  margin-bottom: 4px;
+}
+
+/* Canvas annotation labels */
+.canvas-label {
+  position: absolute;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+/* Dashed frame region */
+.canvas-frame {
+  position: absolute;
+  border: 1.5px dashed #C8B49A;
+  border-radius: 4px;
+}
+
+.canvas-frame-title {
+  position: absolute;
+  top: -9px;
+  left: 10px;
+  background: var(--canvas-bg);
+  padding: 0 6px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: var(--text-muted);
+  letter-spacing: 0.08em;
+}
+
+/* Status bar */
+.status-bar {
+  position: absolute;
+  bottom: 14px;
+  left: 18px;
+  font-family: 'DM Mono', monospace;
+  font-size: 9px;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  pointer-events: none;
+}

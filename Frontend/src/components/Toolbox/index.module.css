@@ -1,0 +1,115 @@
+/* Toolbox – Premium Glassmorphism Design */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+.container {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.85rem;
+  background: rgba(17, 24, 39, 0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.35),
+    0 0 0 1px rgba(99, 102, 241, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  z-index: 100;
+  min-width: 180px;
+  color: #e2e8f0;
+  padding: 12px 0;
+}
+
+.selectOptionContainer {
+  margin-bottom: 20px;
+  padding: 0 16px;
+}
+
+.selectOptionContainer:last-child {
+  margin-bottom: 0;
+}
+
+.toolBoxLabel {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #94a3b8;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.colorsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.colorBox {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.colorBox:hover {
+  transform: scale(1.15);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.noFillColorBox {
+  background: linear-gradient(
+      to top left,
+      rgba(255, 0, 0, 0) 0%,
+      rgba(255, 0, 0, 0) calc(50% - 0.8px),
+      rgba(239, 68, 68, 1) 50%,
+      rgba(255, 0, 0, 0) calc(50% + 0.8px),
+      rgba(255, 0, 0, 0) 100%
+    ),
+    linear-gradient(
+      to top right,
+      rgba(255, 0, 0, 0) 0%,
+      rgba(255, 0, 0, 0) calc(50% - 0.8px),
+      rgba(239, 68, 68, 1) 50%,
+      rgba(255, 0, 0, 0) calc(50% + 0.8px),
+      rgba(255, 0, 0, 0) 100%
+    );
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.activeColorBox {
+  border: 1px solid #c7d2fe;
+  box-shadow: 0 0 0 2px #6366f1;
+}
+
+.colorPicker {
+  margin-right: 6px;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+  cursor: pointer;
+  padding: 1px;
+  background: transparent;
+}
+
+.colorPicker::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+.colorPicker::-webkit-color-swatch {
+  border: none;
+  border-radius: 6px;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: #818cf8;
+  cursor: pointer;
+}
