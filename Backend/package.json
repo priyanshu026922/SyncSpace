@@ -5,10 +5,13 @@
   "description": "WhiteBoard Backend API with Socket.io",
   "main": "server.js",
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.98.0",
+    "@google/generative-ai": "^0.24.1",
     "bcrypt": "*",
     "cors": "*",
     "dotenv": "^17.4.2",
     "express": "*",
+    "groq-sdk": "^1.2.0",
     "jsonwebtoken": "*",
     "mongoose": "*",
     "socket.io": "*"

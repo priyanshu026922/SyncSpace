@@ -1,4 +1,4 @@
-import React, { useCallback, useReducer, useRef } from "react";
+import React, { useCallback, useReducer, useRef, useState } from "react";
 import boardContext from "./board-context";
 import { BOARD_ACTIONS, TOOL_ACTION_TYPES, TOOL_ITEMS } from "../constants";
 import { createElement, isPointNearElement } from "../utils/element";
@@ -200,6 +200,10 @@ const initialBoardState = {
 
 const BoardProvider = ({ children }) => {
   const [boardState, dispatch] = useReducer(boardReducer, initialBoardState);
+  
+
+    const [showAIPanel, setShowAIPanel] = useState(false);
+
 
   const changeToolHandler = (tool) =>
     dispatch({ type: BOARD_ACTIONS.CHANGE_TOOL, payload: { tool } });
@@ -271,6 +275,8 @@ const BoardProvider = ({ children }) => {
     boardMouseDownHandler,
     boardMouseMoveHandler,
     boardMouseUpHandler,
+     showAIPanel,    
+       setShowAIPanel,
     textAreaBlurHandler: (text) =>
       dispatch({ type: BOARD_ACTIONS.CHANGE_TEXT, payload: { text } }),
     undo: () => dispatch({ type: BOARD_ACTIONS.UNDO }),

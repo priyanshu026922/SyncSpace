@@ -1,0 +1,99 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.panel {
+  background: #1e1e2e;
+  border: 1px solid #3b82f6;
+  border-radius: 12px;
+  padding: 24px;
+  width: 480px;
+  max-width: 90vw;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  color: #fff;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 18px;
+}
+.closeBtn:hover { color: #fff; }
+
+.textarea {
+  width: 100%;
+  background: #2a2a3e;
+  border: 1px solid #3b82f6;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 14px;
+  padding: 10px 12px;
+  resize: none;
+  outline: none;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+.textarea::placeholder { color: #666; }
+
+.examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  background: #2a2a3e;
+  border: 1px solid #444;
+  border-radius: 20px;
+  color: #aaa;
+  font-size: 11px;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.chip:hover { border-color: #3b82f6; color: #fff; }
+
+.generateBtn {
+  background: #3b82f6;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.generateBtn:disabled { opacity: 0.5; cursor: not-allowed; }
+.generateBtn:hover:not(:disabled) { opacity: 0.85; }
+
+.error {
+  color: #f87171;
+  font-size: 13px;
+  margin: 0;
+}
+
+.hint {
+  color: #555;
+  font-size: 11px;
+  text-align: center;
+  margin: 0;
+}

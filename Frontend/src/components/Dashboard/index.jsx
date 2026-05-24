@@ -19,7 +19,7 @@ const CanvasPreview = ({ canvas }) => {
     const ctx = canvasRef.current.getContext("2d");
     ctx.clearRect(0, 0, 200, 120);
 
-    // Show thumbnail if available
+  
     if (canvas.thumbnail) {
       const img = new Image();
       img.onload = () => {
@@ -27,14 +27,12 @@ const CanvasPreview = ({ canvas }) => {
       };
       img.src = canvas.thumbnail;
     } else if (canvas.elements && canvas.elements.length > 0) {
-      // Draw simple dots to indicate content
       ctx.fillStyle = "#6366f1";
       ctx.font = "11px Inter, sans-serif";
       ctx.fillStyle = "rgba(99,102,241,0.6)";
       ctx.fillText(`${canvas.elements.length} element${canvas.elements.length !== 1 ? "s" : ""}`, 10, 60);
       ctx.fillRect(10, 70, Math.min(canvas.elements.length * 8, 180), 4);
     } else {
-      // Empty canvas placeholder
       ctx.strokeStyle = "rgba(148,163,184,0.3)";
       ctx.lineWidth = 1;
       ctx.setLineDash([4, 4]);
@@ -81,7 +79,8 @@ const Dashboard = () => {
         getUserCanvases(),
         getSharedCanvases(),
       ]);
-      // Separate owned vs shared from getUserCanvases result
+    
+      
       const userId = localStorage.getItem("userId");
       const ownedCanvases = mine.filter(c => {
         const ownerId = c.owner?._id || c.owner;

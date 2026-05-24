@@ -1,8 +1,8 @@
-/* About Page Styles */
+/* About Page Styles — Dark Theme */
 .aboutContainer {
   min-height: 100vh;
-  background: #FFFFFF;
-  color: #333;
+  background: #0f1117;
+  color: #e2e8f0;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
@@ -12,9 +12,9 @@
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background: rgba(15, 17, 23, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   z-index: 1000;
   padding: 1rem 0;
 }
@@ -30,7 +30,7 @@
 
 .logo h2 {
   margin: 0;
-  color: #4F46E5;
+  color: #818cf8;
   font-weight: 700;
   font-size: 1.5rem;
 }
@@ -40,29 +40,41 @@
   border-radius: 8px;
   font-weight: 500;
   cursor: pointer;
-  border: 1px solid #4F46E5;
+  border: 1px solid #4f46e5;
   background: transparent;
-  color: #4F46E5;
+  color: #818cf8;
   transition: all 0.3s ease;
   font-size: 0.9rem;
 }
 
 .backButton:hover {
-  background: #4F46E5;
+  background: #4f46e5;
   color: white;
+  border-color: #4f46e5;
 }
 
 /* Hero Section */
 .heroSection {
   padding: 8rem 2rem 4rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e1b4b 100%);
   text-align: center;
   color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(99, 102, 241, 0.2) 0%, transparent 70%);
+  pointer-events: none;
 }
 
 .heroContent {
   max-width: 800px;
   margin: 0 auto;
+  position: relative;
 }
 
 .heroTitle {
@@ -70,10 +82,11 @@
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 1.5rem;
+  color: #f1f5f9;
 }
 
 .highlight {
-  background: linear-gradient(135deg, #FFD700, #FFA500);
+  background: linear-gradient(135deg, #a78bfa, #60a5fa);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -82,13 +95,13 @@
 .heroDescription {
   font-size: 1.25rem;
   line-height: 1.6;
-  opacity: 0.9;
+  color: #94a3b8;
 }
 
 /* Mission Section */
 .missionSection {
   padding: 6rem 2rem;
-  background: #F8FAFC;
+  background: #13151f;
 }
 
 .container {
@@ -107,13 +120,13 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 2rem;
-  color: #1F2937;
+  color: #f1f5f9;
 }
 
 .missionText p {
   font-size: 1.125rem;
   line-height: 1.7;
-  color: #6B7280;
+  color: #94a3b8;
   margin-bottom: 1.5rem;
 }
 
@@ -123,10 +136,11 @@
 }
 
 .visualCard {
-  background: white;
+  background: #1e2130;
   padding: 2rem;
   border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   text-align: center;
   max-width: 250px;
 }
@@ -134,13 +148,14 @@
 .cardIcon {
   width: 64px;
   height: 64px;
-  background: linear-gradient(135deg, #4F46E5, #7C3AED);
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 1rem;
   color: white;
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.35);
 }
 
 .cardIcon svg {
@@ -152,18 +167,18 @@
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: #1F2937;
+  color: #e2e8f0;
 }
 
 .visualCard p {
-  color: #6B7280;
+  color: #64748b;
   font-size: 0.9rem;
 }
 
 /* Story Section */
 .storySection {
   padding: 6rem 2rem;
-  background: white;
+  background: #0f1117;
 }
 
 .storyGrid {
@@ -177,13 +192,13 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 2rem;
-  color: #1F2937;
+  color: #f1f5f9;
 }
 
 .storyContent p {
   font-size: 1.125rem;
   line-height: 1.7;
-  color: #6B7280;
+  color: #94a3b8;
   margin-bottom: 1.5rem;
 }
 
@@ -201,12 +216,12 @@
 .stat h3 {
   font-size: 2rem;
   font-weight: 700;
-  color: #4F46E5;
+  color: #818cf8;
   margin-bottom: 0.5rem;
 }
 
 .stat p {
-  color: #6B7280;
+  color: #64748b;
   font-size: 0.9rem;
   margin: 0;
 }
@@ -217,10 +232,12 @@
 }
 
 .timelineCard {
-  background: #F8FAFC;
+  background: #1e2130;
   padding: 2rem;
   border-radius: 16px;
-  border-left: 4px solid #4F46E5;
+  border-left: 4px solid #4f46e5;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  width: 100%;
 }
 
 .timelineItem {
@@ -234,7 +251,7 @@
 }
 
 .timelineYear {
-  background: #4F46E5;
+  background: #4f46e5;
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 8px;
@@ -242,17 +259,18 @@
   font-size: 0.9rem;
   min-width: 60px;
   text-align: center;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.35);
 }
 
 .timelineContent h4 {
   font-size: 1.125rem;
   font-weight: 600;
-  color: #1F2937;
+  color: #e2e8f0;
   margin-bottom: 0.5rem;
 }
 
 .timelineContent p {
-  color: #6B7280;
+  color: #64748b;
   font-size: 0.9rem;
   margin: 0;
   line-height: 1.5;
@@ -261,7 +279,7 @@
 /* Values Section */
 .valuesSection {
   padding: 6rem 2rem;
-  background: #F8FAFC;
+  background: #13151f;
 }
 
 .sectionHeader {
@@ -273,12 +291,12 @@
   font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #1F2937;
+  color: #f1f5f9;
 }
 
 .sectionHeader p {
   font-size: 1.25rem;
-  color: #6B7280;
+  color: #64748b;
 }
 
 .valuesGrid {
@@ -288,31 +306,32 @@
 }
 
 .valueCard {
-  background: white;
+  background: #1e2130;
   padding: 2rem;
   border-radius: 16px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  border: 1px solid #E5E7EB;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   transition: all 0.3s ease;
   text-align: center;
 }
 
 .valueCard:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-  border-color: #4F46E5;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  border-color: #4f46e5;
 }
 
 .valueIcon {
   width: 64px;
   height: 64px;
-  background: linear-gradient(135deg, #4F46E5, #7C3AED);
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 1.5rem;
   color: white;
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.35);
 }
 
 .valueIcon svg {
@@ -324,18 +343,18 @@
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #1F2937;
+  color: #e2e8f0;
 }
 
 .valueCard p {
-  color: #6B7280;
+  color: #64748b;
   line-height: 1.6;
 }
 
 /* Team Section */
 .teamSection {
   padding: 6rem 2rem;
-  background: white;
+  background: #0f1117;
 }
 
 .teamGrid {
@@ -345,18 +364,19 @@
 }
 
 .teamCard {
-  background: white;
+  background: #1e2130;
   padding: 2rem;
   border-radius: 16px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  border: 1px solid #E5E7EB;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   text-align: center;
   transition: all 0.3s ease;
 }
 
 .teamCard:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  border-color: #4f46e5;
 }
 
 .teamAvatar {
@@ -366,7 +386,7 @@
 .avatarPlaceholder {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, #4F46E5, #7C3AED);
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -375,49 +395,64 @@
   color: white;
   font-size: 1.5rem;
   font-weight: 600;
+  box-shadow: 0 4px 15px rgba(79, 70, 229, 0.35);
 }
 
 .teamCard h3 {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: #1F2937;
+  color: #e2e8f0;
 }
 
 .teamRole {
-  color: #4F46E5;
+  color: #818cf8;
   font-weight: 500;
   margin-bottom: 1rem;
 }
 
 .teamBio {
-  color: #6B7280;
+  color: #64748b;
   line-height: 1.6;
   font-size: 0.9rem;
 }
 
 /* CTA Section */
 .ctaSection {
-  background: linear-gradient(135deg, #1F2937, #374151);
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
   padding: 6rem 2rem;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 100%, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ctaContent {
+  position: relative;
 }
 
 .ctaContent h2 {
   font-size: 2.5rem;
   font-weight: 700;
-  color: white;
+  color: #f1f5f9;
   margin-bottom: 1rem;
 }
 
 .ctaContent p {
   font-size: 1.25rem;
-  color: #D1D5DB;
+  color: #94a3b8;
   margin-bottom: 2rem;
 }
 
 .ctaButton {
-  background: linear-gradient(135deg, #10B981, #059669);
+  background: linear-gradient(135deg, #10b981, #059669);
   color: white;
   padding: 1rem 2rem;
   border: none;
@@ -426,19 +461,20 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
 }
 
 .ctaButton:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 8px 30px rgba(16, 185, 129, 0.45);
 }
 
 /* Footer */
 .footer {
-  background: #111827;
+  background: #080a10;
   color: white;
   padding: 3rem 2rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .footerContent {
@@ -448,13 +484,14 @@
   margin-bottom: 2rem;
 }
 
-.footerSection h3, .footerSection h4 {
+.footerSection h3,
+.footerSection h4 {
   margin-bottom: 1rem;
-  color: white;
+  color: #e2e8f0;
 }
 
 .footerSection p {
-  color: #9CA3AF;
+  color: #475569;
   line-height: 1.6;
 }
 
@@ -465,14 +502,14 @@
 
 .footerSection ul li {
   margin-bottom: 0.5rem;
-  color: #9CA3AF;
+  color: #475569;
 }
 
 .footerBottom {
-  border-top: 1px solid #374151;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
   padding-top: 1rem;
   text-align: center;
-  color: #9CA3AF;
+  color: #334155;
 }
 
 /* Responsive Design */
@@ -480,31 +517,31 @@
   .heroTitle {
     font-size: 2.5rem;
   }
-  
+
   .missionContent,
   .storyGrid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .stats {
     grid-template-columns: 1fr;
     gap: 1rem;
   }
-  
+
   .valuesGrid,
   .teamGrid {
     grid-template-columns: 1fr;
   }
-  
+
   .navContent {
     padding: 0 1rem;
   }
-  
+
   .sectionHeader h2 {
     font-size: 2rem;
   }
-  
+
   .ctaContent h2 {
     font-size: 2rem;
   }
@@ -514,18 +551,18 @@
   .heroTitle {
     font-size: 2rem;
   }
-  
+
   .heroSection {
     padding: 6rem 1rem 2rem;
   }
-  
+
   .missionSection,
   .storySection,
   .valuesSection,
   .teamSection {
     padding: 4rem 1rem;
   }
-  
+
   .ctaSection {
     padding: 4rem 1rem;
   }

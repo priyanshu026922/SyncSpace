@@ -1,11 +1,14 @@
 import { createContext } from "react";
 
+
+
 const boardContext = createContext({
   isUserLoggedIn: false,
   activeToolItem: "",
   toolActionType: "",
   elements: [],
   history: [[]],
+  showAIPanel: false, 
   index: 0,
   canvasId: "",
   canvasName: "Untitled Canvas",
@@ -21,6 +24,7 @@ const boardContext = createContext({
   setHistory: () => {},
   undo: () => {},
   redo: () => {},
+   setShowAIPanel: () => {}, 
 });
 
 export default boardContext;

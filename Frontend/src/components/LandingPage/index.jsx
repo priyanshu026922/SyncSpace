@@ -195,7 +195,7 @@ const LandingPage = () => {
           
           </div>
           <div className={styles.footerBottom}>
-            <p>&copy; 2025 SyncSpace. All rights reserved.</p>
+            <p>&copy; 2026 SyncSpace. All rights reserved.</p>
           </div>
         </div>
       </footer>

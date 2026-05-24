@@ -1,5 +1,6 @@
 import { useContext, useEffect, useLayoutEffect, useRef, useState, useCallback } from "react";
 import rough from "roughjs";
+import AIPromptPanel from "../AIPromptPanel"; 
 import boardContext from "../../store/board-context";
 import { TOOL_ACTION_TYPES, TOOL_ITEMS } from "../../constants";
 import toolboxContext from "../../store/toolbox-context";
@@ -74,7 +75,7 @@ function Board({ id }) {
     const currentSocket = getSocket();
 
     const joinCanvas = () => {
-      // ✅ FIX: pass token so server can authenticate the socket user
+      // pass token so server can authenticate the socket user
       emitSocketEvent("joinCanvas", { canvasId: id, token });
     };
 
@@ -84,9 +85,10 @@ function Board({ id }) {
       currentSocket.once("connect", joinCanvas);
     }
 
-    const handleDrawingUpdate = (updatedElements) => {
-      setElements(updatedElements);
-    };
+    const handleDrawingUpdate = (data) => {
+  const els = Array.isArray(data) ? data : data?.elements;
+  if (Array.isArray(els)) setElements(els);
+};
 
     const handleLoadCanvas = (initialElements) => {
       // Only use socket load if we don't have elements yet
@@ -137,40 +139,107 @@ function Board({ id }) {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
     context.clearRect(0, 0, canvas.width, canvas.height);
+    
+    if (!Array.isArray(elements)) return;
 
     const roughCanvas = rough.canvas(canvas);
 
     elements.forEach((element) => {
       switch (element.type) {
         case TOOL_ITEMS.LINE:
-        case TOOL_ITEMS.RECTANGLE:
-        case TOOL_ITEMS.CIRCLE:
-        case TOOL_ITEMS.ARROW:
-          roughCanvas.draw(element.roughEle);
-          break;
+        roughCanvas.draw(element.roughEle);
+        break; 
 
-        case TOOL_ITEMS.BRUSH: {
+          case TOOL_ITEMS.RECTANGLE: {
+        roughCanvas.draw(element.roughEle);
+        if (element.text) {
+          const cx = (element.x1 + element.x2) / 2;
+          const cy = (element.y1 + element.y2) / 2;
           context.save();
-          context.fillStyle = element.stroke;
-          const path = new Path2D(
-            getSvgPathFromStroke(getStroke(element.points))
-          );
-          context.fill(path);
+          context.textAlign = "center";
+          context.textBaseline = "middle";
+          context.font = "bold 13px sans-serif";
+          context.fillStyle = "#1e293b";
+          context.fillText(element.text, cx, cy);
           context.restore();
-          break;
         }
+        break;
+      }
 
-        case TOOL_ITEMS.TEXT:
+        case TOOL_ITEMS.CIRCLE: {
+        roughCanvas.draw(element.roughEle);
+       
+        if (element.text) {
+          const cx = (element.x1 + element.x2) / 2;
+          const cy = (element.y1 + element.y2) / 2;
           context.save();
-          context.textBaseline = "top";
-          context.font = `${element.size}px Caveat`;
-          context.fillStyle = element.stroke;
-          context.fillText(element.text, element.x1, element.y1);
+          context.textAlign = "center";
+          context.textBaseline = "middle";
+          context.font = "bold 13px sans-serif";
+          context.fillStyle = "#1e293b";
+          context.fillText(element.text, cx, cy);
           context.restore();
-          break;
+        }
+        break;
+      }
+      
+      case TOOL_ITEMS.ARROW: {
+      const { x1, y1, x2, y2 } = element;
+      const color = element.stroke || "#94a3b8";
+      const angle = Math.atan2(y2 - y1, x2 - x1);
+      const headLen = 14;
 
-        default:
-          break;
+      context.save();
+      context.strokeStyle = color;
+      context.fillStyle = color;
+      context.lineWidth = 2;
+
+
+      context.beginPath();
+      context.moveTo(x1, y1);
+      context.lineTo(x2, y2);
+      context.stroke();
+
+   
+      context.beginPath();
+      context.moveTo(x2, y2);
+      context.lineTo(
+        x2 - headLen * Math.cos(angle - Math.PI / 6),
+        y2 - headLen * Math.sin(angle - Math.PI / 6)
+      );
+      context.lineTo(
+        x2 - headLen * Math.cos(angle + Math.PI / 6),
+        y2 - headLen * Math.sin(angle + Math.PI / 6)
+      );
+      context.closePath();
+      context.fill();
+
+      context.restore();
+      break;
+    }
+
+          case TOOL_ITEMS.BRUSH: {
+        context.save();
+        context.fillStyle = element.stroke;
+        const path = new Path2D(
+          getSvgPathFromStroke(getStroke(element.points))
+        );
+        context.fill(path);
+        context.restore();
+        break;
+      }
+
+         case TOOL_ITEMS.TEXT:
+        context.save();
+        context.textBaseline = "top";
+        context.font = `${element.size}px Caveat`;
+        context.fillStyle = element.stroke;
+        context.fillText(element.text, element.x1, element.y1);
+        context.restore();
+        break;
+
+      default:
+        break;
       }
     });
   }, [elements]);
@@ -220,9 +289,101 @@ function Board({ id }) {
     textAreaBlurHandler(text);
     setTimeout(emitUpdate, 100);
   };
+  
+  // ─── AI Diagram Generator ────────────────────────────────────────────────────
+const handleShapesGenerated = (shapes) => {
+  // console.log("Raw shapes from AI:", shapes);           
+  // console.log("Arrow shapes:", shapes.filter(s => s.type === "arrow")); 
+
+  const generator = rough.generator();
+    const currentElements = Array.isArray(elements) ? elements : [];
+
+  const newElements = shapes.map((shape, i) => {
+    const id_el= `ai-${Date.now()}-${i}`;
+
+   if (shape.type === "rectangle") {
+      const { x, y, width, height, color, strokeColor, text } = shape;
+      return {
+        id: id_el,
+        type: TOOL_ITEMS.RECTANGLE,
+        x1: x, y1: y,
+        x2: x + width, y2: y + height,
+        stroke: strokeColor || "#3b82f6",
+        fill: color || "#e8f4fd",
+        text: text || "",              // ✅ ADD THIS
+        roughEle: generator.rectangle(x, y, width, height, {
+          stroke: strokeColor || "#3b82f6",
+          fill: color || "#e8f4fd",
+          fillStyle: "solid",
+          roughness: 1,
+        }),
+      };
+    }
+
+    if (shape.type === "circle") {
+          const { x, y, radius = 40, color, strokeColor, text } = shape;
+          const cx = x + radius, cy = y + radius;
+          return {
+            id: id_el,
+            type: TOOL_ITEMS.CIRCLE,
+            x1: x, y1: y,
+            x2: x + radius * 2, y2: y + radius * 2,
+            stroke: strokeColor || "#3b82f6",
+            fill: color || "#e8f4fd",
+            text: text || "",        
+            roughEle: generator.ellipse(cx, cy, radius * 2, radius * 2, {
+              stroke: strokeColor || "#3b82f6",
+              fill: color || "#e8f4fd",
+              fillStyle: "solid",
+              roughness: 1,
+            }),
+          };
+    }
+
+    if (shape.type === "arrow") {
+      const { x1, y1, x2, y2, strokeColor } = shape;
+      return {
+        id: id_el,
+        type: TOOL_ITEMS.ARROW,
+        x1, y1, x2, y2,
+        stroke: strokeColor || "#94a3b8",
+      };
+     }
+
+
+    if (shape.type === "text") {
+      return {
+        id: id_el,
+        type: TOOL_ITEMS.TEXT,
+        x1: shape.x,
+        y1: shape.y,
+        text: shape.text,
+        stroke: "#1e293b",           
+        size: 14,
+      };
+    }
+
+    return null;
+  }).filter(Boolean);
+
+  // console.log("New elements created:", newElements);   
+  // console.log("Arrow elements:", newElements.filter(e => e.type === TOOL_ITEMS.ARROW)); 
+
+   const merged = [...currentElements, ...newElements];
+  setElements(merged);
+
+  // Sync to collaborators
+  setTimeout(() => {
+    emitSocketEvent("drawingUpdate", {
+      canvasId: id,
+      elements: merged,
+    });
+  }, 50);
+};
 
   return (
     <>
+      <AIPromptPanel onShapesGenerated={handleShapesGenerated} />
       {toolActionType === TOOL_ACTION_TYPES.WRITING && elements.length > 0 && (
         <textarea
           ref={textAreaRef}

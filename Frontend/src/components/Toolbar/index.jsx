@@ -12,6 +12,7 @@ import {
   FaRedoAlt,
   FaFont,
   FaDownload,
+  FaMagic,
 } from "react-icons/fa";
 import { LuRectangleHorizontal } from "react-icons/lu";
 import { TOOL_ITEMS } from "../../constants";
@@ -21,11 +22,14 @@ import { renameCanvas } from "../../utils/api";
 const Toolbar = () => {
   const navigate = useNavigate();
   const { id } = useParams();
-  const { activeToolItem, changeToolHandler, undo, redo, canvasName, setCanvasName } =
-    useContext(boardContext);
+  const { activeToolItem, changeToolHandler, undo, redo,
+        canvasName, setCanvasName,
+        showAIPanel, setShowAIPanel               // ← ADD
+} = useContext(boardContext);
 
   const [editingName, setEditingName] = useState(false);
   const [tempName, setTempName] = useState("");
+
 
   const handleDownloadClick = () => {
     const canvas = document.getElementById("canvas");
@@ -35,6 +39,7 @@ const Toolbar = () => {
     anchor.download = `${canvasName || "board"}.png`;
     anchor.click();
   };
+
 
   const handleNameClick = () => {
     if (!id) return;
@@ -119,6 +124,17 @@ const Toolbar = () => {
       )}
 
       <div className={classes.divider} />
+       
+
+      <div
+        className={cx(classes.toolItem, {
+          [classes.active]: showAIPanel,
+        })}
+        onClick={() => setShowAIPanel((prev) => !prev)}
+        title="AI Diagram Generator"
+      >
+        <FaMagic />
+      </div>
 
       {/* Actions */}
       <div className={classes.toolItem} onClick={undo} title="Undo (Ctrl+Z)">
