@@ -31,8 +31,8 @@ SyncSpace is a full-stack real-time collaborative whiteboard application. Multip
 - Authorization-only permitted users can edit
 
 ### Generative AI Diagram Builder
--Transform natural language prompts into fully structured, color-coded system architecture diagrams in seconds (e.g. “Design a scalable URL shortener architecture”)
--Real-time synchronization ensures every generated update appears instantly for all collaborators
+- Transform natural language prompts into fully structured, color-coded system architecture diagrams in seconds (e.g. “Design a scalable URL shortener architecture”)
+- Real-time synchronization ensures every generated update appears instantly for all collaborators
 - by **Groq API** (LLaMA 3.3 70B)
 
 ### Canvas Management
