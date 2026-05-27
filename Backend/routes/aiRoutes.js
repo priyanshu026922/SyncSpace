@@ -75,12 +75,12 @@ router.post("/generate", async (req, res) => {
 
     try {
         const completion = await groq.chat.completions.create({
-            model: "llama-3.3-70b-versatile",   // best free model on Groq
+            model: "llama-3.3-70b-versatile",   
             messages: [
                 { role: "system", content: SYSTEM_PROMPT },
                 { role: "user",   content: prompt },
             ],
-            temperature: 0.3,      // lower = more consistent JSON output
+            temperature: 0.3,      
             max_tokens: 2048,
         });
 

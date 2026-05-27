@@ -13,6 +13,7 @@ function reducer(state, action) {
         },
       };
 
+
     case TOOLBOX_ACTIONS.CHANGE_FILL:
       return {
         ...state,
@@ -22,6 +23,7 @@ function reducer(state, action) {
         },
       };
 
+      
     case TOOLBOX_ACTIONS.CHANGE_SIZE:
       return {
         ...state,
