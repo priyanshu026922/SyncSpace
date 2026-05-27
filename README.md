@@ -2,7 +2,7 @@
 
 # SyncSpace
 
-### A real-time collaborative whiteboard with AI-powered diagram generation
+### AI-Powered Collaborative Whiteboard for Real-Time Diagram Generation
 
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react)](https://react.dev)
 [![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=flat-square&logo=node.js)](https://nodejs.org)
@@ -30,9 +30,9 @@ SyncSpace is a full-stack real-time collaborative whiteboard application. Multip
 - Join any canvas by shared URL
 - Authorization-only permitted users can edit
 
-### AI Diagram Generator
-- AI generates a complete, color-coded architecture diagram through  a natural language prompt(e.g. *"Create system design for a URL shortener"*)
-- Diagrams sync to all collaborators in real time
+### Generative AI Diagram Builder
+-Transform natural language prompts into fully structured, color-coded system architecture diagrams in seconds (e.g. “Design a scalable URL shortener architecture”)
+-Real-time synchronization ensures every generated update appears instantly for all collaborators
 - by **Groq API** (LLaMA 3.3 70B)
 
 ### Canvas Management
@@ -81,9 +81,9 @@ collabboard/
 │       └── App.jsx                    # Routes
 │
 └── backend/                         
-    ├── server.js                        # Entry — Express + Socket.io init
+    ├── server.js                   
     ├── config/
-    │   └── db.js                        # MongoDB connection
+    │   └── db.js                        # DB connection
     ├── controllers/
     │   ├── canvasController.js          # Canvas CRUD logic
     │   └── userController.js            # Register, login logic
@@ -101,7 +101,7 @@ collabboard/
     ├── sockets/
     │   └── socketHandler.js             # joinCanvas,drawingUpdate
     └── utils/
-        └── jwt.js                       # Token sign& verify helpers
+        └── jwt.js                       # Token sign & verify 
 ```
 
 ## Architecture
