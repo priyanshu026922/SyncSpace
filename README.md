@@ -2,7 +2,7 @@
 
 # SyncSpace
 
-### AI-Powered Collaborative Whiteboard for Real-Time Diagram Generation
+### AI-Powered Collaborative Whiteboard 
 
 [![React](https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react)](https://react.dev)
 [![Node.js](https://img.shields.io/badge/Node.js-Express-339933?style=flat-square&logo=node.js)](https://nodejs.org)
@@ -18,7 +18,7 @@
 
 ##  Overview
 
-SyncSpace is a full-stack real-time collaborative whiteboard application. Multiple users can draw simultaneously on shared canvases, and an integrated AI assistant can generate system architecture diagrams, flowcharts, and component diagrams directly on the canvas from a simple text prompt.
+SyncSpace is a full-stack real-time collaborative whiteboard application. Multiple users can draw simultaneously on shared canvases, and an integrated AI assistant can help generate system architecture diagrams, flowcharts, and component diagrams directly on the canvas from a simple text prompt.
 
 ---
 
