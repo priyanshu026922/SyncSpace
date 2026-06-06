@@ -45,7 +45,6 @@ const Register = () => {
         return;
       }
 
-      // ✅ Auto-login: store token and go directly to dashboard
       if (data.token) {
         localStorage.setItem('token', data.token);
         localStorage.setItem('userEmail', email);

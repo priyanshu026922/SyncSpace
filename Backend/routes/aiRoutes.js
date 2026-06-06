@@ -7,6 +7,11 @@ const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 const SYSTEM_PROMPT = `You are an expert software architecture diagram generator for a whiteboard app.
 Respond ONLY with a valid JSON array. No explanation, no markdown, just raw JSON.
 
+- CRITICAL: Arrows must ONLY go left-to-right between adjacent columns.
+  Never connect column 1 to column 3 directly.
+  Never connect a service back to another service.
+  Each node connects to maximum 2 targets.
+
 AVAILABLE SHAPE TYPES:
 - rectangle: { "type": "rectangle", "x": number, "y": number, "width": number, "height": number, "text": string, "color": string, "strokeColor": string }
 - circle:    { "type": "circle", "x": number, "y": number, "radius": number, "text": string, "color": string, "strokeColor": string }

@@ -1,8 +1,8 @@
 {
-  "name": "whiteboard-backend",
+  "name": "syncspace-backend",
   "version": "1.0.0",
   "type": "module",
-  "description": "WhiteBoard Backend API with Socket.io",
+  "description": "SyncSpace Backend API with Socket.io",
   "main": "server.js",
   "dependencies": {
     "@anthropic-ai/sdk": "^0.98.0",
@@ -25,6 +25,6 @@
     "nodemon": "*"
   },
   "engines": {
-    "node": "18.x"
+    "node": ">=20.0.0"
   }
 }
